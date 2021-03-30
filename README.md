@@ -11,7 +11,7 @@ Programmers of the world, UNITE
 
 ## Utilities
 I'm so sorry about that but the only one person that can use with his own optimization with the screen is ME :(
-but if you want you can costumize on your own.
+but if you want you can costumize on your own. Coming soon about that...
 
 
 
