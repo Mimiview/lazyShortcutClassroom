@@ -3,7 +3,7 @@ import pyautogui
 from selenium import webdriver
 
 
-driver = webdriver.Chrome(r"C:\Users\Alex\Desktop\Python\lazyShortcutClassroom\driver\chromedriver.exe")
+driver = webdriver.Chrome("driver/chromedriver.exe")
 web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
             "https://moodle.unive.it/mod/lti/launch.php?id=298281",  # IUM
             "https://moodle.unive.it/mod/lti/launch.php?id=301935",  # SO
@@ -13,9 +13,12 @@ web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
 
 # sorta di main momentaneo
 def open_windows():
-    driver.get("https://google.com")
+    driver.get(web_http[0])
+    driver.find_element_by_class_name('//*[@id="region-main"]/div[1]/div/div/div/div/div/div/div[1]/a').click()
+    # problema per quanto riguarda il click dell'elemnto per entrare nel moodle
+    driver.close()
     # j = input("Hai già effettuato il login a moodle? Y/n ")
-    # problema todo vedere per quale motivo si apre un nuovo ambiente di google
+    # todo completare tutto ciò
 
 
 # debugger per la posizione
