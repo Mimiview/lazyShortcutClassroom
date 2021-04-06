@@ -13,11 +13,8 @@ web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
 
 # sorta di main momentaneo
 def open_windows():
-    i = input("Scegliere tra \n1.Basi di dati \n2.IUM \n3.SO \n4.ASD Pelillo \n5.PO2\n")
-    i = int(i) - 1
     driver.get("https://google.com")
     # j = input("Hai già effettuato il login a moodle? Y/n ")
-    assert "moodle" in driver.title
     # problema todo vedere per quale motivo si apre un nuovo ambiente di google
 
 
