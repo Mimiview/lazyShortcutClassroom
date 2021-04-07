@@ -10,13 +10,21 @@ web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
             "https://moodle.unive.it/mod/lti/launch.php?id=229445",  # ASD
             "https://moodle.unive.it/mod/lti/launch.php?id=297564"]  # PO2
 
+username = 'yourusername'+"@"+'stud.unive.it'  # trovare il perchè la chiocciola crea problemi
+password = ""
+
 
 # sorta di main momentaneo
 def open_windows():
     driver.get(web_http[0])
-    driver.find_element_by_class_name('//*[@id="region-main"]/div[1]/div/div/div/div/div/div/div[1]/a').click()
+    # click of the login unive main page, modify with a condition about the login. Used xpath because couldnt find his class name
+    driver.find_element_by_xpath('//*[@id="region-main"]/div[1]/div/div/div/div/div/div/div[1]/a').click()
+
+    driver.find_element_by_id("username").send_keys(username)
+    driver.find_element_by_id("password").send_keys(password)
+    driver.find_element_by_name("_eventId_proceed").click()
     # problema per quanto riguarda il click dell'elemnto per entrare nel moodle
-    driver.close()
+    # driver.close()
     # j = input("Hai già effettuato il login a moodle? Y/n ")
     # todo completare tutto ciò
 
