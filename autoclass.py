@@ -1,6 +1,5 @@
 import time
 import pyautogui
-import requests as req
 from selenium import webdriver
 
 driver = webdriver.Chrome("driver/chromedriver.exe")
@@ -10,24 +9,37 @@ web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
             "https://moodle.unive.it/mod/lti/launch.php?id=229445",  # ASD
             "https://moodle.unive.it/mod/lti/launch.php?id=297564"]  # PO2
 
-username = '882483@stud.unive.it'  # big problem about the @
+username = '882483@stud.unive.it'
 password = ''  # one time with a gui we can manage it with a text field
 
+list_password = ['rt3xxq', ['4r643d', '0g008t'], 'SO2021', '6n413q']
 
-def main_fun():
-    driver.get(web_http[0])
-    # todo  require a condition to verify if login is required
+
+def auto_fun(x):
+    driver.get(web_http[x])
     login_fun()
-    extract_pass()
-    time.sleep(10)
+    zoom_opening()
+    time.sleep(1)
+    passcode_zoom(x)
     driver.close()
 
 
-def extract_pass():
-    # driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/textarea').click()
-    resp = req.get("https://applications.zoom.us/api/v1/lti/rich/meeting/88578281421/invitation?lti_scid=ad82b86c546f32146d3c989ec16e8f1a0bfff43c5bbc111fa07dc0d91de9738c")
-    resp = resp.text
-    print(resp)
+def passcode_zoom(x):  # todo fammi sto typewrite bonu
+    if x == 1:
+        pyautogui.typewrite(web_http[x][0])
+    else:
+        pyautogui.typewrite(web_http[x])
+    time.sleep(1)
+    pyautogui.click(924, 651)
+
+
+def zoom_opening():
+    time.sleep(0.5)
+    pyautogui.moveTo(759, 404)
+    pyautogui.click()
+    time.sleep(2)
+    pyautogui.moveTo(574, 244)
+    pyautogui.click()
 
 
 def login_fun():
@@ -45,13 +57,5 @@ def positioning():
         print(pyautogui.position())
 
 
-# find shortcut
-def crtl_shortcut(letter):
-    pyautogui.keyDown('ctrl')
-    pyautogui.press(letter)
-    pyautogui.keyUp('ctrl')
+auto_fun(0)
 
-
-main_fun()
-
-# positioning()
