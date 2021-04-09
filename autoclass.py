@@ -9,20 +9,25 @@ web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
             "https://moodle.unive.it/mod/lti/launch.php?id=229445",  # ASD
             "https://moodle.unive.it/mod/lti/launch.php?id=297564"]  # PO2
 
-username = 'yourusername@stud.unive.it'  # big problem about the @
-password = ""  # one time with a gui we can manage it with a text field
+username = '882483@stud.unive.it'  # big problem about the @
+password = 'hlHS9aq^!@co'  # one time with a gui we can manage it with a text field
 
 
 def main_fun():
     driver.get(web_http[0])
     # todo  require a condition to verify if login is required
     login_fun()
-    driver.find_element_by_link_text("Zoom")
-    # driver.close()
+    extract_pass()
+    time.sleep(10)
+    driver.close()
+
+
+def extract_pass():
+    driver.find_element_by_xpath('//*[@id="integration-meeting-list"]/div/div/div/div/div/div/div/table/tbody/tr[1]/td[4]/div/div[2]/button/span').click()
 
 
 def login_fun():
-    # click of the login unive main page, modify with a condition about the login. Used xpath because couldnt find his class name
+    # click of the login unive main page, modify with a condition about the login. Used xpath because couldn't find his class name
     driver.find_element_by_xpath('//*[@id="region-main"]/div[1]/div/div/div/div/div/div/div[1]/a').click()
     driver.find_element_by_id("username").send_keys(username)
     driver.find_element_by_id("password").send_keys(password)
