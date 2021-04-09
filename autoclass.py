@@ -9,8 +9,8 @@ web_http = ["https://moodle.unive.it/mod/lti/launch.php?id=286767",  # BD
             "https://moodle.unive.it/mod/lti/launch.php?id=229445",  # ASD
             "https://moodle.unive.it/mod/lti/launch.php?id=297564"]  # PO2
 
-username = '882483@stud.unive.it'  # big problem about the @
-password = 'hlHS9aq^!@co'  # one time with a gui we can manage it with a text field
+username = 'yourusername@stud.unive.it'  # big problem about the @
+password = ''  # one time with a gui we can manage it with a text field
 
 
 def main_fun():
@@ -23,7 +23,7 @@ def main_fun():
 
 
 def extract_pass():
-    driver.find_element_by_xpath('//*[@id="integration-meeting-list"]/div/div/div/div/div/div/div/table/tbody/tr[1]/td[4]/div/div[2]/button/span').click()
+    driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/textarea').click()
 
 
 def login_fun():
