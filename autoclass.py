@@ -33,7 +33,7 @@ def passcode_zoom(x):  # todo fammi sto typewrite bonu
     pyautogui.click(924, 651)
 
 
-def zoom_opening():
+def zoom_opening():  # todo vedere in che modo con locateScreen riuscire a gettare il passcode e accedere a zoom
     time.sleep(0.5)
     pyautogui.moveTo(759, 404)
     pyautogui.click()
