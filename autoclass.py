@@ -20,26 +20,8 @@ def auto_fun(x):
     login_fun()
     zoom_opening()
     time.sleep(1)
-    # passcode_zoom(x)
+    passcode_zoom(x)
     # driver.close()
-
-
-def passcode_zoom(x):  # todo fammi sto typewrite bonu
-    if x == 1:
-        pyautogui.typewrite(web_http[x][0])
-    else:
-        pyautogui.typewrite(web_http[x])
-    time.sleep(1)
-    pyautogui.click(924, 651)
-
-
-def zoom_opening():  # todo problemi su locateScreen da vedere
-    time.sleep(0.5)
-    join = pyautogui.locateOnScreen('screenshots/jooin.PNG')  # join problemi su locateScreen
-    join.click()
-    time.sleep(2)
-    pyautogui.moveTo(574, 244)  # aprizoom
-    pyautogui.click()
 
 
 def login_fun():
@@ -50,6 +32,18 @@ def login_fun():
     driver.find_element_by_name("_eventId_proceed").click()
 
 
+def zoom_opening():  # todo problemi su locateScreen da vedere
+    time.sleep(1)
+    pyautogui.click('screenshots/join.PNG')
+    time.sleep(1.5)
+    pyautogui.click('screenshots/apri_zoom.PNG')  # aprizoom
+
+
+def passcode_zoom(x):  # todo fammi sto typewrite bonu e vedere problemi riguardanti il passcode riunione, vedere errore
+    pyautogui.typewrite(web_http[x])
+    pyautogui.click('screenshots/enter.PNG')
+
+
 # position debugger
 def positioning():
     for i in range(10):
@@ -57,5 +51,6 @@ def positioning():
         print(pyautogui.position())
 
 
-# auto_fun(0)
+auto_fun(0)
+
 
